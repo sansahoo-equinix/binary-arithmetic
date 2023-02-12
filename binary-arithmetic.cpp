@@ -114,10 +114,14 @@ vector<int> modulo(vector<int>bin1 ,vector<int> bin2){
    }
    return bin1;
 }
-void factorial(int a)
-{
-
+vector<int> factorial(vector<int> bin){
+   vector<int> ans = decimal_to_binary(1);
+   for(int i = 2; i<= binary_to_decimal(bin); i++){
+       ans = mul(ans, decimal_to_binary(i));
+   }
+   return ans;
 }
+
 // basic layout of code 
 int main()
 {
@@ -135,7 +139,7 @@ int main()
         cout<<ans[i]<<" ";
     }
     cout<<endl;
-    ans=modulo(a,b);
+    ans=factorial(a);
      for(int i=0;i<LENGTH;i++)
     {
         cout<<ans[i]<<" ";
