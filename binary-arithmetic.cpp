@@ -64,8 +64,12 @@ vector<int> add(vector<int> bin1,vector<int> bin2){
     return ans;
 }
 
-void sub(int a,int b)
+vector<int> sub(vector<int> bin1,vector<int> bin2)
 {
+      
+      bin2=complement_2s(bin2);
+      vector<int> ans=add(bin1,bin2);
+      return ans;
 
 }
 
@@ -74,7 +78,7 @@ void mul(int a, int b)
 {
 
 }
-void pow(int a,int b)
+void power(int a,int b)
 {
 
 }
@@ -89,11 +93,17 @@ void factorial(int a)
 // basic layout of code 
 int main()
 {
-    vector<int> a = decimal_to_binary(3);
-    vector<int> b = decimal_to_binary(4);
+    vector<int> a = decimal_to_binary(4);
+    vector<int> b = decimal_to_binary(3);
 
     vector<int> ans = add(a, b);
     for(int i = 0; i<LENGTH; i++){
+        cout<<ans[i]<<" ";
+    }
+    cout<<endl;
+    ans=sub(a,b);
+    for(int i=0;i<LENGTH;i++)
+    {
         cout<<ans[i]<<" ";
     }
     return 0 ;
