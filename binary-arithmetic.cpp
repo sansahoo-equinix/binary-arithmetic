@@ -108,9 +108,11 @@ vector<int> power(vector<int> bin1,vector<int> bit2){
    }
    return res;
 }
-void modulo(int a,int b)
-{
-
+vector<int> modulo(vector<int>bin1 ,vector<int> bin2){
+   while(binary_to_decimal(bin1)>=binary_to_decimal(bin2)){
+    bin1=sub(bin1,bin2);
+   }
+   return bin1;
 }
 void factorial(int a)
 {
@@ -133,7 +135,7 @@ int main()
         cout<<ans[i]<<" ";
     }
     cout<<endl;
-    ans=power(a,b);
+    ans=modulo(a,b);
      for(int i=0;i<LENGTH;i++)
     {
         cout<<ans[i]<<" ";
