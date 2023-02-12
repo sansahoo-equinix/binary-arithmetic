@@ -20,7 +20,15 @@ vector<int> complement_2s(vector<int> bin){
    bin = add(bin, decimal_to_binary(1));
    return bin;
 }
-
+int binary_to_decimal(vector<int>num)
+{
+    int ans=0;
+    for(int i=0;i<LENGTH;i++)
+    {
+           ans+=num[i]*pow(2,LENGTH-1);
+    }
+    return ans;
+}
 vector<int> decimal_to_binary(int num){
     bool is_negative = false;
     if(num < 0){
