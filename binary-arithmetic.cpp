@@ -100,9 +100,13 @@ vector<int> div(vector<int> bin1, vector<int> bin2){
     return decimal_to_binary(count);
 }
 
-void power(int a,int b)
-{
-
+vector<int> power(vector<int> bin1,vector<int> bit2){
+   vector<int>res = decimal_to_binary(1);
+   for(int i=0; i<binary_to_decimal(bit2); i++)
+   {
+      res=mul(res,bin1);
+   }
+   return res;
 }
 void modulo(int a,int b)
 {
@@ -129,7 +133,7 @@ int main()
         cout<<ans[i]<<" ";
     }
     cout<<endl;
-    ans=div(a,b);
+    ans=power(a,b);
      for(int i=0;i<LENGTH;i++)
     {
         cout<<ans[i]<<" ";
