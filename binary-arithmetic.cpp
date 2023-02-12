@@ -7,7 +7,8 @@ vector<int> add(vector<int>,vector<int>);
 vector<int> input_key(){
     int num1,num2;
     cout<<"enter two numbers:"<<endl;
-    cin>>num1>>num2;
+    cin>>num1;
+    cin>>num2;
     vector<int> num;
     num.push_back(num1);
     num.push_back(num2);
@@ -121,28 +122,77 @@ vector<int> factorial(vector<int> bin){
    }
    return ans;
 }
-
+void print_the_vector(vector<int>bin)
+{
+    cout<<binary_to_decimal(bin)<<endl;
+    for(int i=0;i<LENGTH-1;i++)
+    {
+        cout<<bin[i]<<" ";
+    }
+}
 // basic layout of code 
 int main()
 {
-    vector<int> a = decimal_to_binary(4);
-    vector<int> b = decimal_to_binary(3);
+    cout<<"Enter 1: for binary addition"<<endl;
+    cout<<"Enter 2: for binary division"<<endl;
+    cout<<"Enter 3: for binary multiplication"<<endl;
+    cout<<"Enter 4: for binary division"<<endl;
 
-    vector<int> ans = add(a, b);
-    for(int i = 0; i<LENGTH; i++){
-        cout<<ans[i]<<" ";
-    }
-    cout<<endl;
-    ans=sub(a,b);
-    for(int i=0;i<LENGTH;i++)
+    cout<<"Enter 5: for binary power"<<endl;
+    cout<<"Enter 6: for binary modulo"<<endl;
+    cout<<"Enter 7: for binary addition"<<endl;
+    int n;
+    cin>>n;
+    vector<int>bin;
+    vector<int>ans;
+    int num;
+    switch(n)
     {
-        cout<<ans[i]<<" ";
+        case 1:
+                bin=input_key();
+                
+                ans=add(decimal_to_binary(bin[0]),decimal_to_binary(bin[1]));
+                print_the_vector(ans);
+                break;
+        case 2:
+                bin=input_key();
+                
+                ans=sub(decimal_to_binary(bin[0]),decimal_to_binary(bin[1]));
+                print_the_vector(ans);
+                break;
+        case 3:
+                bin=input_key();
+                
+                ans=mul(decimal_to_binary(bin[0]),decimal_to_binary(bin[1]));
+                print_the_vector(ans);
+                break;
+        case 4:
+                bin=input_key();
+                
+                ans=div(decimal_to_binary(bin[0]),decimal_to_binary(bin[1]));
+                print_the_vector(ans);
+                break;
+        case 5:
+                bin=input_key();
+                
+                ans=power(decimal_to_binary(bin[0]),decimal_to_binary(bin[1]));
+                print_the_vector(ans);
+                break;
+
+        case 6:
+                bin=input_key();
+                
+                ans=modulo(decimal_to_binary(bin[0]),decimal_to_binary(bin[1]));
+                print_the_vector(ans);
+                break;
+        case 7:
+                cout<<"enter the number";
+                cin>>num;
+                ans=factorial(decimal_to_binary(num));
+                print_the_vector(ans);
+                break;
+        default:break;
     }
-    cout<<endl;
-    ans=factorial(a);
-     for(int i=0;i<LENGTH;i++)
-    {
-        cout<<ans[i]<<" ";
-    }
+    
     return 0 ;
 }
