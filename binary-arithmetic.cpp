@@ -20,12 +20,10 @@ vector<int> complement_2s(vector<int> bin){
    bin = add(bin, decimal_to_binary(1));
    return bin;
 }
-int binary_to_decimal(vector<int>num)
-{
+int binary_to_decimal(vector<int>num){
     int ans=0;
-    for(int i=0;i<LENGTH;i++)
-    {
-           ans+=num[i]*pow(2,LENGTH-1);
+    for(int i=0;i<LENGTH;i++){
+           ans+=num[i]*pow(2, LENGTH - 1 - i);
     }
     return ans;
 }
@@ -91,6 +89,17 @@ vector<int> mul(vector<int> bin1, vector<int> bin2 ){
     return res;
 
 }
+
+vector<int> div(vector<int> bin1, vector<int> bin2){
+    int count = 0;
+    while(binary_to_decimal(bin1) >= binary_to_decimal(bin2)){
+        bin1 = sub(bin1, bin2);
+        count++;
+    }
+
+    return decimal_to_binary(count);
+}
+
 void power(int a,int b)
 {
 
@@ -120,7 +129,7 @@ int main()
         cout<<ans[i]<<" ";
     }
     cout<<endl;
-    ans=mul(a,b);
+    ans=div(a,b);
      for(int i=0;i<LENGTH;i++)
     {
         cout<<ans[i]<<" ";
