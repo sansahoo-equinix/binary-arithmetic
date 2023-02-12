@@ -74,8 +74,21 @@ vector<int> sub(vector<int> bin1,vector<int> bin2)
 }
 
 //null
-void mul(int a, int b)
-{
+vector<int> mul(vector<int> bin1, vector<int> bin2 ){    
+    vector<int> res(LENGTH, 0);
+    for(int i=LENGTH-1;i>=0;i--){
+        vector<int> temp(LENGTH,0);
+        int k = i;
+        for(int j=LENGTH-1;j>=0;j--){
+            if(k >= 0){
+              temp[k]=(bin2[i] & bin1[j]);
+              k--;
+            }
+        } 
+        res = add(res, temp);
+    }
+    
+    return res;
 
 }
 void power(int a,int b)
@@ -103,6 +116,12 @@ int main()
     cout<<endl;
     ans=sub(a,b);
     for(int i=0;i<LENGTH;i++)
+    {
+        cout<<ans[i]<<" ";
+    }
+    cout<<endl;
+    ans=mul(a,b);
+     for(int i=0;i<LENGTH;i++)
     {
         cout<<ans[i]<<" ";
     }
