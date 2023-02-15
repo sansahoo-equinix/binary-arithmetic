@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include<vector>
+#include<math.h>
+
 using namespace std;
 #define LENGTH  32
 vector<int> decimal_to_binary(int);
@@ -133,6 +136,9 @@ void print_the_vector(vector<int>bin)
 // basic layout of code 
 int main()
 {
+    
+    while(true){
+    int n;
     cout<<"Enter 1: for binary addition"<<endl;
     cout<<"Enter 2: for binary division"<<endl;
     cout<<"Enter 3: for binary multiplication"<<endl;
@@ -141,11 +147,12 @@ int main()
     cout<<"Enter 5: for binary power"<<endl;
     cout<<"Enter 6: for binary modulo"<<endl;
     cout<<"Enter 7: for binary addition"<<endl;
-    int n;
+    
     cin>>n;
     vector<int>bin;
     vector<int>ans;
     int num;
+    
     switch(n)
     {
         case 1:
@@ -192,6 +199,8 @@ int main()
                 print_the_vector(ans);
                 break;
         default:break;
+    }
+    if(n<=1 && n>=7) break;
     }
     
     return 0 ;
